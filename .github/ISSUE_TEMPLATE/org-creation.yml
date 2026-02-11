@@ -1,0 +1,155 @@
+name: "GitHub Organization Creation Request"
+description: "Request the creation of a new GitHub organization"
+title: "[Org Request]: "
+labels: ["org-creation", "pending-review"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## GitHub Organization Creation Request
+        Please fill out the details below to request a new GitHub organization.
+
+  - type: input
+    id: org-name
+    attributes:
+      label: Requested Organization Name
+      description: "The desired name for the new GitHub organization."
+      placeholder: "e.g., my-awesome-org"
+    validations:
+      required: true
+
+  - type: input
+    id: org-display-name
+    attributes:
+      label: Display Name
+      description: "A human-readable display name for the organization."
+      placeholder: "e.g., My Awesome Organization"
+    validations:
+      required: true
+
+  - type: textarea
+    id: org-description
+    attributes:
+      label: Organization Description
+      description: "A brief description of the organization's purpose."
+      placeholder: "Describe what this organization will be used for..."
+    validations:
+      required: true
+
+  - type: input
+    id: business-unit
+    attributes:
+      label: Business Unit / Team
+      description: "The business unit or team that owns this organization."
+      placeholder: "e.g., Platform Engineering"
+    validations:
+      required: true
+
+  - type: input
+    id: cost-center
+    attributes:
+      label: Cost Center
+      description: "The cost center to associate with this organization."
+      placeholder: "e.g., CC-12345"
+    validations:
+      required: false
+
+  - type: input
+    id: org-owner-email
+    attributes:
+      label: Organization Owner Email
+      description: "Email address of the primary organization owner."
+      placeholder: "e.g., owner@example.com"
+    validations:
+      required: true
+
+  - type: input
+    id: org-owner-github
+    attributes:
+      label: Organization Owner GitHub Username
+      description: "GitHub username of the primary organization owner."
+      placeholder: "e.g., @johndoe"
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-admins
+    attributes:
+      label: Additional Admins
+      description: "List any additional GitHub usernames that should have admin access (one per line)."
+      placeholder: |
+        @user1
+        @user2
+    validations:
+      required: false
+
+  - type: dropdown
+    id: visibility
+    attributes:
+      label: Default Repository Visibility
+      description: "Choose the default visibility for repositories in this organization."
+      options:
+        - Private
+        - Internal
+        - Public
+    validations:
+      required: true
+
+  - type: dropdown
+    id: plan
+    attributes:
+      label: GitHub Plan
+      description: "Which GitHub plan is required?"
+      options:
+        - Free
+        - Team
+        - Enterprise
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: features
+    attributes:
+      label: Required Features
+      description: "Select the features needed for this organization."
+      options:
+        - label: GitHub Actions
+        - label: GitHub Packages
+        - label: GitHub Pages
+        - label: Dependabot Alerts
+        - label: Secret Scanning
+        - label: Code Scanning
+        - label: GitHub Copilot
+
+  - type: textarea
+    id: justification
+    attributes:
+      label: Business Justification
+      description: "Explain why a new organization is needed (as opposed to using an existing one)."
+      placeholder: "Provide business justification..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-notes
+    attributes:
+      label: Additional Notes
+      description: "Any other relevant information or special requirements."
+      placeholder: "Any additional context..."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: acknowledgements
+    attributes:
+      label: Acknowledgements
+      description: "Please confirm the following before submitting."
+      options:
+        - label: I have verified that an organization with this name does not already exist.
+          required: true
+        - label: I have obtained approval from my manager / team lead for this request.
+          required: true
+        - label: I agree to follow the organization's security and compliance policies.
+          required: true
